@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hth.com · 再次遇见</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f9f7f4;
+            color: #222;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 760px;
+            margin: 0 auto;
+        }
+
+        /* ——— 横幅 hero ——— */
+        .hero {
+            margin-bottom: 3.8rem;
+            text-align: left;
+            padding: 1.2rem 0 0.8rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .hero__label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #9a8a7a;
+            margin-bottom: 1.2rem;
+            display: block;
+        }
+
+        .hero__title {
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
+            color: #1a1a1a;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero__sub {
+            font-size: 1.1rem;
+            color: #6f5e4e;
+            font-style: italic;
+        }
+
+        /* ——— 正文区域 ——— */
+        .section {
+            margin-bottom: 2.8rem;
+        }
+
+        .section__heading {
+            font-size: 1.4rem;
+            font-weight: 400;
+            border-left: 3px solid #b7a287;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            color: #2e2b27;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            font-size: 1rem;
+            color: #3a3530;
+        }
+
+        .inset-quote {
+            background: #f1ede8;
+            padding: 1.4rem 1.8rem;
+            margin: 1.8rem 0;
+            border-radius: 2px;
+            font-style: italic;
+            color: #3f3a33;
+        }
+
+        .inset-quote p {
+            margin-bottom: 0;
+        }
+
+        /* ——— 链接风格 ——— */
+        a {
+            color: #8b6f51;
+            text-decoration: none;
+            border-bottom: 1px solid #d6c9bb;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #4f3e2c;
+            border-bottom-color: #4f3e2c;
+        }
+
+        /* ——— 特点卡片（极简） ——— */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 2rem 0 1.6rem;
+        }
+
+        .feature-item {
+            flex: 1 1 200px;
+            background: transparent;
+            border-top: 1px solid #ddd;
+            padding-top: 1.2rem;
+        }
+
+        .feature-item__num {
+            font-size: 0.75rem;
+            color: #b3a190;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #1f1c18;
+        }
+
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #55504a;
+        }
+
+        /* ——— FAQ 摘要 ——— */
+        .faq-mini {
+            margin: 2.5rem 0 2rem;
+            border-top: 1px solid #e3dbd2;
+            padding-top: 2rem;
+        }
+
+        .faq-mini details {
+            margin-bottom: 1rem;
+            border-bottom: 1px dotted #dad2c7;
+            padding-bottom: 0.6rem;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #4d4036;
+            font-size: 1.05rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #b7a287;
+            transition: transform 0.2s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini details p {
+            font-size: 0.95rem;
+            margin: 0.6rem 0 0.2rem 1.5rem;
+            color: #4f4942;
+        }
+
+        /* ——— 页尾 ——— */
+        .footer-note {
+            margin-top: 4rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: #7a6e61;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.8rem;
+        }
+
+        .footer-note .meta {
+            letter-spacing: 0.3px;
+        }
+
+        .footer-note .hint {
+            font-style: normal;
+            background: #ede7e0;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #5d5246;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero__title {
+                font-size: 2.2rem;
+            }
+
+            .hero__sub {
+                font-size: 1rem;
+            }
+
+            .feature-grid {
+                flex-direction: column;
+                gap: 1.2rem;
+            }
+
+            .footer-note {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- HERO 横幅 -->
+    <header class="hero">
+        <span class="hero__label">再次翻阅 · 专题</span>
+        <h1 class="hero__title">hth.com</h1>
+        <p class="hero__sub">一处记在书签里的角落，一段持续凝望的叙事。</p>
+    </header>
+
+    <!-- 第一部分：关于回头 -->
+    <section class="section">
+        <h2 class="section__heading">重新打开，如同遇见旧友</h2>
+        <p>
+            收藏夹里总有一些地址，你不会每天点开，却会在某个安静的午后或深夜再次键入。它们像是搁在书架高层的旧册子，落灰了，但你知道它还在那里。<a href="https://hthcom-hth.com">hth.com</a> 便是这类存在——不张扬，不催促，只等你再次叩响。<br>
+            网络潮水退去又涨起，页面的底色、栏目的次序或许早已悄悄更新，但某种熟悉的质感总会留住回来的脚步。没有多余的通知，没有弹窗的惊扰，你只需要记住那个域名，以及当初第一次加载时的耐心。
+        </p>
+    </section>
+
+    <!-- 第二部分：收藏的纹理 -->
+    <section class="section">
+        <h2 class="section__heading">收藏，是对空间的温柔占有</h2>
+        <p>
+            浏览器里的星标、笔记中的超链接、备忘录的片段……人们用收藏标记那些还未读完、还想再读的领地。<a href="https://hthcom-hth.com">hth.com</a> 没有花哨的首屏动画，也没有令人分心的自动播放。它更像一本白纸封面的笔记本——你用目光往空白处填字，用自己的节奏决定翻页的时机。<br>
+            收藏不等于拥有，却比拥有更接近陪伴。你将它搁置在数字抽屉的一角，知道它不会消失，也不会变质；下一次打开，它依然递出同样的安静与克制。
+        </p>
+    </section>
+
+    <!-- 补充：极简的特点卡片 -->
+    <div class="feature-grid">
+        <div class="feature-item">
+            <span class="feature-item__num">— 01 —</span>
+            <h3>无冗余</h3>
+            <p>没有广告墙、没有强制推送，页面只承载它该承载的东西。</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-item__num">— 02 —</span>
+            <h3>可重读</h3>
+            <p>每次返回，你都能在前次停下的地方续上节奏，而非重新适应。</p>
+        </div>
+        <div class="feature-item">
+            <span class="feature-item__num">— 03 —</span>
+            <h3>不打扰</h3>
+            <p>不收集多余的注意力，你与内容之间没有中介。</p>
+        </div>
+    </div>
+
+    <!-- 第三部分：持续关注的平静理由 -->
+    <section class="section">
+        <h2 class="section__heading">关注，是一种细水长流的姿势</h2>
+        <p>
+            在这个每分钟都在争夺手指点击的时代，持续关注一个地方变得越来越奢侈。你愿意在书签栏里保留 <a href="https://hthcom-hth.com">hth.com</a> 的位置，或许是因为它从不假装热闹。它就像社区尽头那家开了很多年的杂货铺，不装修门面，不搞大促，但你知道它供应你需要的那几样东西。<br>
+            保持关注不需要时刻刷新。偶尔想起来，去一趟，发现那里依旧安稳——这就足够了。不是所有网站都应该变成信息洪流的闸口，有些更适合做一盏走廊尽头的壁灯。
+        </p>
+        <div class="inset-quote">
+            <p>“我们不是缺少可以点击的链接，而是缺少值得再次点击的链接。”<br>—— 一位读者在笔记里写下的话</p>
+        </div>
+    </section>
+
+    <!-- FAQ 摘要 (杂志常见栏目) -->
+    <div class="faq-mini">
+        <details>
+            <summary>为什么选择再次回到同一个地方？</summary>
+            <p>重复访问往往不是因为没有选择，而是因为那个地方提供了一种稳定的叙事环境和心理节奏，无需重新适应。</p>
+        </details>
+        <details>
+            <summary>收藏夹里的链接会消失吗？</summary>
+            <p>好的域名有记忆，好的页面有生命。只要你还记得路径，它就一直等在那里。当然，定期备份总是明智的习惯。</p>
+        </details>
+        <details>
+            <summary>这个页面会频繁变化吗？</summary>
+            <p>变化是缓慢的、审慎的。它更像一棵树在四季里的变化，而不是霓虹灯的闪烁。</p>
+        </details>
+    </div>
+
+    <!-- 页尾 / 访问提示 -->
+    <footer class="footer-note">
+        <span class="meta">杂志式记录 · 不设限回访</span>
+        <span class="hint">▸ 路径存于书签，归来自有回声</span>
+    </footer>
+
+</div>
+</body>
+</html>
